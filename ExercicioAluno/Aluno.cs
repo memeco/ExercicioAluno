@@ -42,9 +42,9 @@ namespace ExercicioAluno
             }
         }
 
-        public double PontosFaltantes()
+        public string ObterMediaFinal()
         {
-            return 6 - CalcularMedia();
+            return CalcularMedia().ToString("F2");
         }
     }
 }

@@ -4,17 +4,6 @@ namespace ExercicioAluno
 {
     public class Program
     {
-        // Função para ler um valor double do console
-        static double LerDouble()
-        {
-            double valor;
-            while (!double.TryParse(Console.ReadLine(), out valor))
-            {
-                Console.WriteLine("Valor inválido. Digite novamente: ");
-            }
-            return valor;
-        }
-
         public static void Main(string[] args)
         {
             // Leitura do nome do aluno
@@ -31,25 +20,27 @@ namespace ExercicioAluno
             Console.WriteLine("Digite a nota do terceiro trimestre: ");
             double notaTerceiroTrimestre = LerDouble();
 
-            // Cálculo da média final
-            double mediaFinal = (notaPrimeiroTrimestre + notaSegundoTrimestre + notaTerceiroTrimestre) / 3;
+            // Criação de um novo aluno
+            Aluno aluno = new Aluno(nomeAluno, notaPrimeiroTrimestre, notaSegundoTrimestre, notaTerceiroTrimestre);
 
-            // Verificação de aprovação
-            bool aprovado = mediaFinal >= 6;
+            // Exibição dos dados do aluno
+            Console.WriteLine("Nome: {0}", aluno.Nome);
+            Console.WriteLine("Nota do Primeiro Trimestre: {0}", aluno.NotaPrimeiroTrimestre.ToString("F2"));
+            Console.WriteLine("Nota do Segundo Trimestre: {0}", aluno.NotaSegundoTrimestre.ToString("F2"));
+            Console.WriteLine("Nota do Terceiro Trimestre: {0}", aluno.NotaTerceiroTrimestre.ToString("F2"));
+            Console.WriteLine("Média Final: {0}", aluno.ObterMediaFinal());
+            Console.WriteLine("Situação: {0}", aluno.ObterSituacao());
+        }
 
-            // Exibição dos resultados
-            Console.WriteLine("Nome do aluno: {0}", nomeAluno);
-            Console.WriteLine("Média final: {0}", mediaFinal.ToString("F2"));
-
-            if (aprovado)
+        // Função para ler um valor double do console
+        static double LerDouble()
+        {
+            double valor;
+            while (!double.TryParse(Console.ReadLine(), out valor))
             {
-                Console.WriteLine("Situação: APROVADO");
+                Console.WriteLine("Valor inválido. Digite novamente: ");
             }
-            else
-            {
-                Console.WriteLine("Situação: REPROVADO");
-                Console.WriteLine("Pontos faltantes: {0}", (6 - mediaFinal).ToString("F2"));
-            }
+            return valor;
         }
     }
 }
