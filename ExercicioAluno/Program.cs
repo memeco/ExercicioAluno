@@ -24,10 +24,10 @@ namespace ExercicioAluno
             Aluno aluno = new Aluno(nomeAluno, notaPrimeiroTrimestre, notaSegundoTrimestre, notaTerceiroTrimestre);
 
             // Exibição dos dados do aluno
-            Console.WriteLine("Nome: {0}", aluno.Nome);
-            Console.WriteLine("Nota do Primeiro Trimestre: {0}", aluno.NotaPrimeiroTrimestre.ToString("F2"));
-            Console.WriteLine("Nota do Segundo Trimestre: {0}", aluno.NotaSegundoTrimestre.ToString("F2"));
-            Console.WriteLine("Nota do Terceiro Trimestre: {0}", aluno.NotaTerceiroTrimestre.ToString("F2"));
+            Console.WriteLine("Nome: {0}", aluno.ObterNome());
+            Console.WriteLine("Nota do Primeiro Trimestre: {0}", aluno.ObterNotaPrimeiroTrimestre().ToString("F2"));
+            Console.WriteLine("Nota do Segundo Trimestre: {0}", aluno.ObterNotaSegundoTrimestre().ToString("F2"));
+            Console.WriteLine("Nota do Terceiro Trimestre: {0}", aluno.ObterNotaTerceiroTrimestre().ToString("F2"));
             Console.WriteLine("Média Final: {0}", aluno.ObterMediaFinal());
             Console.WriteLine("Situação: {0}", aluno.ObterSituacao());
         }
